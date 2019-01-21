@@ -1,11 +1,7 @@
 import Contacts from "./contactColection"
-import contactFormedit from "./editform"
-
-//appends the form to the dom
-//on button click sends user input to database
-
-const contactForm = {
-    createAndAppendForm(articleId, response)  {
+import DataId from "./contact"
+const contactFormedit = {
+    createAndAppendFormedit(DataId, response)  {
         // Creating the HTML form
         // Creates header on top of the form page
         let formHeader = document.createElement("h2");
@@ -17,7 +13,7 @@ const contactForm = {
         contactNameLabel.setAttribute("for", "contactName");
         contactNameLabel.textContent = "Name"
         let contactNameInput = document.createElement("input");
-        contactNameInput.setAttribute("id", "contactName");
+        contactNameInput.setAttribute("id", "contactName2");
         contactNameInput.setAttribute("name", "contactName")
         // Appends the user fieldset and input boxes to the DOM
         contactNameField.appendChild(contactNameLabel);
@@ -29,7 +25,7 @@ const contactForm = {
         contactAddressLabel.textContent = "Address"
         contactAddressLabel.setAttribute("for", "contactAddress");
         let contactAddressInput = document.createElement("input");
-        contactAddressInput.setAttribute("id", "contactAddress");
+        contactAddressInput.setAttribute("id", "contactAddress2");
         contactAddressInput.setAttribute("name", "contactAddress");
 
         contactAddressField.appendChild(contactAddressLabel);
@@ -41,15 +37,15 @@ const contactForm = {
         contactNumberLabel.textContent = "Phone Number"
         contactNumberLabel.setAttribute("for", "contactNumber");
         let contactNumberInput = document.createElement("input");
-        contactNumberInput.setAttribute("id", "contactNumber");
+        contactNumberInput.setAttribute("id", "contactNumber2");
         contactNumberInput.setAttribute("name", "contactNumber");
 
         contactNumberField.appendChild(contactNumberLabel);
         contactNumberField.appendChild(contactNumberInput);
 
         let contactSaveButton = document.createElement("button");
-        contactSaveButton.textContent = "Save New Contact"
-        contactSaveButton.setAttribute("class", "contactSave")
+        contactSaveButton.textContent = "Save Edit"
+        contactSaveButton.setAttribute("class", "contactSave2")
 
         contactSaveButton.addEventListener("click", this.handleNewContact)
         console.log(contactSaveButton);
@@ -60,7 +56,7 @@ const contactForm = {
         contactTimeLabel.textContent = "Time"
         contactTimeLabel.setAttribute("for", "contactTime");
         let contacTimeInput = document.createElement("input");
-        contacTimeInput.setAttribute("id", "contactTime");
+        contacTimeInput.setAttribute("id", "contactTime2");
         contacTimeInput.setAttribute("name", "contactTime");
 
         contactTimeField.appendChild(contactTimeLabel);
@@ -78,23 +74,22 @@ const contactForm = {
         formArticle.appendChild(contactFormFragment)
 
     },
-
     handleNewContact() {
-        let inputContactName = document.getElementById("contactName").value
-        let inputContactAddress = document.getElementById("contactAddress").value;
-        let inputContactNumber = document.getElementById("contactNumber").value;
-        let InputBestTimeToReach = document.getElementById("contactTime").value;
+        let inputContactName = document.getElementById("contactName2").value
+        let inputContactAddress = document.getElementById("contactAddress2").value;
+        let inputContactNumber = document.getElementById("contactNumber2").value;
+        let InputBestTimeToReach = document.getElementById("contactTime2").value;
 
-        let newContact = {
+        let newContact2 = {
             Name: inputContactName,
             PhoneNumber: inputContactNumber,
             Address: inputContactAddress,
             BestTimeToReach: InputBestTimeToReach
         }
-        console.log(newContact)
+        console.log(newContact2)
         // contact.makeDOMcomponentFromObject(contactObject)
-        Contacts.GetAllContactsPost(newContact)
+        Contacts.PutData(DataId)
     }
 }
 
-export default contactForm
+export default contactFormedit

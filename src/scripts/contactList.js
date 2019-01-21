@@ -5,14 +5,15 @@ import contact from "./contact"
 const data = {
     getdataset() {
         Contacts.GetAllContacts().then(response => {
-            let docfrag2 = document.createDocumentFragment()
+            let BifDOMFrag = document.createDocumentFragment()
+            //big container to be appoeneded to dom
             response.forEach(eachcontact => {
                 let newdomthinigny = contact.MakeDOMBuilder(eachcontact)
-                docfrag2.appendChild(newdomthinigny)
-
+                //small contaier to be filled
+                BifDOMFrag.appendChild(newdomthinigny)
             });
             let output = document.querySelector(".output")
-            output.appendChild(docfrag2)
+            output.appendChild(BifDOMFrag)
         })
     }
 }
