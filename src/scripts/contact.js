@@ -1,7 +1,7 @@
 import Contacts from "./contactColection"
-import contactForm from "./ContactForm"
-import contactFormedit from "./editform"
 import data from "./contactList"
+import contactForm from "./ContactForm";
+
 
 // contains a templates that creates an html componenet that can be apenmeded tot he dom by contcat list
 const contact = {
@@ -29,29 +29,20 @@ const contact = {
         let Delete = document.createElement("button");
         Delete.textContent = "Delete"
         docfrag.appendChild(Delete)
-        Delete.addEventListener("click", myFunction);
-        function myFunction() {
+        Delete.addEventListener("click", () => {
             let DataId = contactobject.id
             Contacts.deletedata(DataId)
-                .then(response => {
-                    data.getdataset()
-                    return response
-                })
-        }
+            .then(response =>  data.getdataset()
+            )})
         let Edit = document.createElement("button");
         Edit.textContent = "Edit"
         docfrag.appendChild(Edit)
         Edit.addEventListener("click", () => {
-            let articleId = event.target.parentNode.id
             let DataId = contactobject.id
-            Contacts.GetAllContactsPost(DataId)
-                .then(response => {
-                    contactFormedit.createAndAppendFormedit(articleId, response)
-                })
-        })
-        return docfrag
+            Contacts.GetAllContacts(DataId)
+                .then(response => contactForm.createAndAppendForm()
+         )})
+         return docfrag
 
-    }
-}
+        }}
 export default contact
-

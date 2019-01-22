@@ -12,8 +12,9 @@ const data = {
                 //small contaier to be filled
                 BifDOMFrag.appendChild(newdomthinigny)
             });
-            let output = document.querySelector(".output")
-            output.appendChild(BifDOMFrag)
+            const Form = document.querySelector(".form")
+            Form.innerHTML = " "
+            Form.appendChild(BifDOMFrag)
         })
     }
 }

@@ -1,11 +1,10 @@
 import Contacts from "./contactColection"
-import contactFormedit from "./editform"
-
+import data from "./contactList"
 //appends the form to the dom
 //on button click sends user input to database
 
 const contactForm = {
-    createAndAppendForm(articleId, response)  {
+    createAndAppendForm()  {
         // Creating the HTML form
         // Creates header on top of the form page
         let formHeader = document.createElement("h2");
@@ -74,7 +73,7 @@ const contactForm = {
         contactFormFragment.appendChild(contactNumberField);
         contactFormFragment.appendChild(contactTimeField);
         contactFormFragment.appendChild(contactSaveButton);
-        let formArticle = document.querySelector(".form");
+        let formArticle = document.querySelector(".output");
         formArticle.appendChild(contactFormFragment)
 
     },
@@ -93,8 +92,9 @@ const contactForm = {
         }
         console.log(newContact)
         // contact.makeDOMcomponentFromObject(contactObject)
+
         Contacts.GetAllContactsPost(newContact)
+        .then(response => data.getdataset())
     }
 }
-
 export default contactForm
