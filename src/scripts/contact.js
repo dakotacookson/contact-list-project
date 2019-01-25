@@ -6,23 +6,23 @@ const contact = {
     MakeDOMBuilder(contactobject) {
         let docfrag = document.createDocumentFragment()
         let sec = document.createElement("h1")
-        sec.innerHTML += "Name:"
-        sec.innerHTML += " "
+        sec.innerHTML += "NAME: "
+        sec.innerHTML += "    "
         sec.innerHTML += contactobject.Name
         docfrag.appendChild(sec)
         let sec4 = document.createElement("h3")
-        sec4.innerHTML += "Adress:"
-        sec4.innerHTML += " "
+        sec4.innerHTML += "ADDRESS: "
+        sec4.innerHTML += "    "
         sec4.innerHTML += contactobject.Address
         docfrag.appendChild(sec4)
         let sec2 = document.createElement("h3")
-        sec2.innerHTML += "PhoneNumber:"
-        sec2.innerHTML += " "
+        sec2.innerHTML += "PHONE NUMBER: "
+        sec2.innerHTML += "     "
         sec2.innerHTML += contactobject.PhoneNumber
         docfrag.appendChild(sec2)
         let sec3 = document.createElement("h3")
-        sec3.innerHTML += "BestTimeToReach:"
-        sec3.innerHTML += " "
+        sec3.innerHTML += "CALL ME AT: "
+        sec3.innerHTML += "    "
         sec3.innerHTML += contactobject.BestTimeToReach
         docfrag.appendChild(sec3)
         let Delete = document.createElement("button");

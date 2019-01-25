@@ -1,15 +1,20 @@
 
 h3{
+    font-size: 2.0em;
+    text-align: left;
     animation: appear 2s ease 0s 1 normal ;
 }
 
 h1{
+    font-size: 2.0em;
     animation: appear 2s ease 0s 1 normal ;
+    text-align: left;
 
 }
 
 h2{
     animation: appear 2s ease 0s 1 normal ;
+    font-size: 1.5em;
 
 }
 html{
@@ -28,12 +33,13 @@ input{
 }
 
 button{
+    font-size: 1.5em;
     background-color: rgba(214, 214, 214, 0.787);
-    width: 25%;
+    width: 40%;
     text-align: center;
     padding: .3%;
     margin: 2%;
-    animation: appear 2s ease 0s 1 normal ;
+    animation: appear 2s ease 0s 1 normal;
 }
 hr{
     background-color: rgb(0, 128, 0);

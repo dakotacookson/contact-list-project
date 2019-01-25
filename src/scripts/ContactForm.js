@@ -55,7 +55,7 @@ const contactForm = {
         contactNumberField.appendChild(contactNumberInput);
 
         let contactSaveButton = document.createElement("button");
-        contactSaveButton.textContent += "Save New Contact"
+        contactSaveButton.textContent += "Save Contact"
         contactSaveButton.setAttribute("class", "contactSave")
 
         contactSaveButton.addEventListener("click", this.handleNewContact)
