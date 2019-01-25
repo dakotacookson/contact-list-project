@@ -3,8 +3,8 @@
 import Contacts from "./contactColection"
 import contact from "./contact"
 const data = {
-    getdataset() {
-        Contacts.GetAllContacts().then(response => {
+    getdataset(input) {
+        Contacts.GetAllContacts(input).then(response => {
             let BifDOMFrag = document.createDocumentFragment()
             //big container to be appoeneded to dom
             response.forEach(eachcontact => {
@@ -16,6 +16,21 @@ const data = {
             Form.innerHTML = " "
             Form.appendChild(BifDOMFrag)
         })
-    }
+    },
+getdataset2(input) {
+    Contacts.GetData2(input).then(response => {
+            let BifDOMFrag = document.createDocumentFragment()
+            //big container to be appoeneded to dom
+            response.forEach(eachcontact => {
+                let newdomthinigny = contact.MakeDOMBuilder(eachcontact)
+                //small contaier to be filled
+                BifDOMFrag.appendChild(newdomthinigny)
+            });
+            const Form = document.querySelector(".form")
+            Form.innerHTML = " "
+            Form.appendChild(BifDOMFrag)
+        })
 }
+}
+
 export default data

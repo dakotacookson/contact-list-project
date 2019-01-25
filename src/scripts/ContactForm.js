@@ -4,11 +4,19 @@ import data from "./contactList"
 //on button click sends user input to database
 
 const contactForm = {
-    createAndAppendForm()  {
+    createAndAppendForm(Input , Search2)  {
         // Creating the HTML form
         // Creates header on top of the form page
         let formHeader = document.createElement("h2");
         formHeader.textContent = "Add a New Contact"
+        let contactsearchField = document.createElement("fieldset")
+        let contactSearchInput = document.createElement("input");
+        contactSearchInput.setAttribute("id", "contactSearch");
+        let contactSearchLabel = document.createElement("label");
+        contactSearchLabel.textContent = "Search"
+        contactSearchInput.setAttribute("name", "contactSearch");
+        contactsearchField.appendChild(contactSearchLabel);
+        contactsearchField.appendChild(contactSearchInput);
         // Creates the fieldset for user input
         let contactNameField = document.createElement("fieldset");
         // Creates the input text fields for user input
@@ -47,7 +55,7 @@ const contactForm = {
         contactNumberField.appendChild(contactNumberInput);
 
         let contactSaveButton = document.createElement("button");
-        contactSaveButton.textContent = "Save New Contact"
+        contactSaveButton.textContent += "Save New Contact"
         contactSaveButton.setAttribute("class", "contactSave")
 
         contactSaveButton.addEventListener("click", this.handleNewContact)
@@ -62,12 +70,14 @@ const contactForm = {
         contacTimeInput.setAttribute("id", "contactTime");
         contacTimeInput.setAttribute("name", "contactTime");
 
+
         contactTimeField.appendChild(contactTimeLabel);
         contactTimeField.appendChild(contacTimeInput);
 
 
         let contactFormFragment = document.createDocumentFragment()
         contactFormFragment.appendChild(formHeader);
+        contactFormFragment.appendChild(contactsearchField);
         contactFormFragment.appendChild(contactNameField);
         contactFormFragment.appendChild(contactAddressField);
         contactFormFragment.appendChild(contactNumberField);
@@ -86,15 +96,30 @@ const contactForm = {
 
         let newContact = {
             Name: inputContactName,
-            PhoneNumber: inputContactNumber,
             Address: inputContactAddress,
+            PhoneNumber: inputContactNumber,
             BestTimeToReach: InputBestTimeToReach
         }
+
         console.log(newContact)
         // contact.makeDOMcomponentFromObject(contactObject)
 
         Contacts.GetAllContactsPost(newContact)
         .then(response => data.getdataset())
+        if (document.getElementById("contactName").value != " "){
+            document.getElementById("contactName").value = " "
+        }
+        if (document.getElementById("contactAddress").value != " "){
+            document.getElementById("contactAddress").value = " "
+        }
+        if (document.getElementById("contactNumber").value != " "){
+        document.getElementById("contactNumber").value = " "
+        }
+        if (document.getElementById("contactTime").value != " "){
+            document.getElementById("contactTime").value = " "
+        }
+
     }
+
 }
 export default contactForm

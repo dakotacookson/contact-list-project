@@ -1,0 +1,62 @@
+html{
+    color: rgb(0, 0, 0);
+    background: linear-gradient(270deg, #ffffff, #d8d8d8);
+    background-size: 100% 100%;
+animation: AnimationName 55s ease infinite;
+}
+input{
+    display:flex;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(90deg, #ffffff, #d8d8d8);
+    background-size: 100% 100%;
+    animation: AnimationName 0ms linear infinite;
+    width: 100%
+}  
+
+
+@keyframes AnimationName { 
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
+}
+button{
+    color: rgb(0, 0, 0);
+    background: linear-gradient(270deg, #ffffff, #d8d8d8);
+    background-size: 400% 400%;
+    animation: AnimationName 55s ease infinite;
+    box-shadow: 1px 1px 3px 3px #3535354f;
+    padding: 2%;
+    margin: 2%;   
+    justify-content: center;
+align-self: center;
+text-align: center;
+align-items: center
+}
+button:hover{
+    color: rgb(0, 0, 0);
+    background: linear-gradient(270deg, #ffffff, #d8d8d8);
+    background-size: 400% 400%;
+    animation: AnimationName 55s ease infinite;
+    box-shadow: .5px .5px 1px 1px #3535354f;
+    padding: 2%;
+    margin: 2%;  
+    justify-content: center;
+align-self: center;
+text-align: center;
+align-items: center
+}
+h2{
+    box-shadow: 1px 1px 3px 3px #3535354f;
+}
+.form{
+    text-align: center;
+    align-content: center
+}
+
+.output{
+justify-content: center;
+align-self: center;
+text-align: center;
+align-items: center
+width 100%
+}

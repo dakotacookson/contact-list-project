@@ -1,6 +1,6 @@
 // this utilizes api fetch calls to be called by contacat list and contact forms
 const Contacts = {
-  GetAllContacts() {
+  GetAllContacts(input) {
      return fetch("http://localhost:8088/Data")
     .then(response => response.json())
   },
@@ -27,15 +27,20 @@ deletedata(DataId) {
   })
 },
 // In order to edit an existing food item, we need the id to identify which food item we want to edit and the new data we want to replace the existing data with. So this time, we have two arguments for the method.
-PutData(DataId) {
+PutData(DataId , editedcontacts) {
   return fetch(`http://localhost:8088/Data/${DataId}`, {
     method: "PUT",
     headers: {
         "Content-Type": "application/json"
     },
-    body:JSON.stringify(DataId)
+    body:JSON.stringify(editedcontacts)
   })
-}
+},
+GetData2(Input) {
+  return fetch(`http://localhost:8088/Data/?Name_like=${Input}`)
+  .then(response => response.json())
+},
+
 }
 export default Contacts
 
