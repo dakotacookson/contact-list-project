@@ -8,12 +8,12 @@ const contactForm = {
         // Creating the HTML form
         // Creates header on top of the form page
         let formHeader = document.createElement("h2");
-        formHeader.textContent = "Add a New Contact"
+        formHeader.textContent = "Contact List"
         let contactsearchField = document.createElement("fieldset")
         let contactSearchInput = document.createElement("input");
         contactSearchInput.setAttribute("id", "contactSearch");
         let contactSearchLabel = document.createElement("label");
-        contactSearchLabel.textContent = "Search"
+        contactSearchLabel.textContent = "Search by Name"
         contactSearchInput.setAttribute("name", "contactSearch");
         contactsearchField.appendChild(contactSearchLabel);
         contactsearchField.appendChild(contactSearchInput);
@@ -69,7 +69,6 @@ const contactForm = {
         let contacTimeInput = document.createElement("input");
         contacTimeInput.setAttribute("id", "contactTime");
         contacTimeInput.setAttribute("name", "contactTime");
-
 
         contactTimeField.appendChild(contactTimeLabel);
         contactTimeField.appendChild(contacTimeInput);

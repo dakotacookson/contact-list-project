@@ -1,49 +1,41 @@
-        import Contacts from "./contactColection"
-        import data from "./contactList"
-        // contains a templates that creates an html componenet that can be apenmeded tot he dom by contcat list
-        const contact = {
-            MakeDOMBuilder(contactobject) {
-                let docfrag = document.createDocumentFragment()
-                let Search3 = document.createElement("button");
-                Search3.textContent = "Search"
-                docfrag.append(Search3)
-                Search3.addEventListener("click", () => {
-                    let Input = document.getElementById("contactSearch").value
-                    console.log(Input)
-                        Contacts.GetData2(Input)
-                        data.getdataset2(Input)
-                })
+import Contacts from "./contactColection"
+import data from "./contactList"
+import contactFormedit from "./contactedit"
+// contains a templates that creates an html componenet that can be apenmeded tot he dom by contcat list
+const contact = {
+    MakeDOMBuilder(contactobject) {
+        let docfrag = document.createDocumentFragment()
         let sec = document.createElement("h1")
-        sec.textContent += "Name:"
-        sec.textContent += " "
-        sec.textContent += contactobject.Name
+        sec.innerHTML += "Name:"
+        sec.innerHTML += " "
+        sec.innerHTML += contactobject.Name
         docfrag.appendChild(sec)
         let sec4 = document.createElement("h3")
-        sec4.textContent += "Adress:"
-        sec4.textContent += " "
-        sec4.textContent += contactobject.Address
+        sec4.innerHTML += "Adress:"
+        sec4.innerHTML += " "
+        sec4.innerHTML += contactobject.Address
         docfrag.appendChild(sec4)
         let sec2 = document.createElement("h3")
-        sec2.textContent += "PhoneNumber:"
-        sec2.textContent += " "
-        sec2.textContent += contactobject.PhoneNumber
+        sec2.innerHTML += "PhoneNumber:"
+        sec2.innerHTML += " "
+        sec2.innerHTML += contactobject.PhoneNumber
         docfrag.appendChild(sec2)
         let sec3 = document.createElement("h3")
-        sec3.textContent += "BestTimeToReach:"
-        sec3.textContent += " "
-        sec3.textContent += contactobject.BestTimeToReach
+        sec3.innerHTML += "BestTimeToReach:"
+        sec3.innerHTML += " "
+        sec3.innerHTML += contactobject.BestTimeToReach
         docfrag.appendChild(sec3)
         let Delete = document.createElement("button");
-        Delete.textContent = "Delete"
+        Delete.innerHTML = "Delete"
         docfrag.appendChild(Delete)
         Delete.addEventListener("click", () => {
             let DataId = contactobject.id
             Contacts.deletedata(DataId)
-            .then(response => data.getdataset()
+                .then(response => data.getdataset()
                 )
         })
         let Edit = document.createElement("button");
-        Edit.textContent = "Edit"
+        Edit.innerHTML = "Edit"
         docfrag.appendChild(Edit)
         Edit.addEventListener("click", () => {
             let articleId = contactobject.id
@@ -51,11 +43,15 @@
             const Form2 = document.querySelector(".output2")
             Form2.innerHTML = " "
             Contacts.GetData(DataId)
-                .then(response => contactFormedit.createAndAppendFormedit(response, articleId , input)
+                .then(response => contactFormedit.createAndAppendFormedit(response, articleId)
                 )
         }
         )
-                      return docfrag
-        }
+        let emty = document.createElement("div");
+        let hrtag = document.createElement("hr");
+        emty.append(hrtag)
+        docfrag.append(emty)
+        return docfrag
     }
+}
 export default contact
